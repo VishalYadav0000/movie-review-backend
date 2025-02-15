@@ -10,6 +10,7 @@ const { errorHandler } = require("./middlewares/errorMiddleware");
 const app = express();
 app.use(express.json({ limit: "10mb" }));
 app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "http:// 98.82.0.215:3000" }));
 
 // Middleware
 app.use(express.json());
@@ -28,5 +29,5 @@ app.use(errorHandler);
 mongoose.connect(process.env.MONGO_URI).then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 6000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
